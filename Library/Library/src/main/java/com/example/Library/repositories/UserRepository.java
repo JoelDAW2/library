@@ -6,5 +6,5 @@ import com.example.Library.models.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    
+    User findByUsername(String username);
 }

@@ -10,13 +10,17 @@ import com.example.Library.repositories.UserRepository;
 @Service
 public class UserService {
     @Autowired
-    private UserRepository UserRepository;
+    private UserRepository userRepository;
 
-    public User createUser(User user){
-        return UserRepository.save(user);
+    public User createUser(User user) {
+        User existingUser = userRepository.findByUsername(user.getUsername());
+        if (existingUser == null) {
+            return userRepository.save(user);
+        }
+        return null;
     }
 
     public List<User> getAllUsers(){
-        return UserRepository.findAll();
+        return userRepository.findAll();
     }
 }
