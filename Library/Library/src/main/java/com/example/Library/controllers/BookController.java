@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,10 +32,18 @@ public class BookController {
     public List<Book> getAllBooks(){
         return bookService.getAllBooks();
     }
-    public String getMethodName(@RequestParam String param) {
+
+    @PutMapping
+    public void updateBook(@RequestBody Book book){
+        bookService.updateBook(book);
+    }
+
+
+
+    /* public String getMethodName(@RequestParam String param) {
         return new String();
     }
     public String postMethodName(@RequestBody String entity) {
         return entity;
-    }   
+    } */   
 }
