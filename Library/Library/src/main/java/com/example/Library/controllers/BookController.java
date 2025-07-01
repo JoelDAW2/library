@@ -37,10 +37,5 @@ public class BookController {
     public String postMethodName(@RequestBody String entity) {
         
         return entity;
-    }
-    @GetMapping("/helloWorld")
-    public String helloWorld() {
-        return "¡Hola desde Spring boot!";
-    }
-    
+    }   
 }

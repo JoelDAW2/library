@@ -11,11 +11,15 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
+
+Create database if not exists library;
+use library;
+
+drop table if exists books, users, reviews;
 
 --
 -- Base de datos: `library`
@@ -36,13 +40,6 @@ CREATE TABLE `books` (
   `genre` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `books`
---
-
-INSERT INTO `books` (`id`, `title`, `synopsis`, `author`, `year`, `genre`) VALUES
-(1, 'Harry Potter 1', 'bla bla bla', 'J.K.Rowling', 2001, 'Fantasía');
-
 -- --------------------------------------------------------
 
 --
@@ -55,13 +52,6 @@ CREATE TABLE `reviews` (
   `score` int(11) DEFAULT NULL,
   `comment` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `reviews`
---
-
-INSERT INTO `reviews` (`user_id`, `book_id`, `score`, `comment`) VALUES
-(1, 1, 10, 'me gusta');
 
 -- --------------------------------------------------------
 
@@ -76,14 +66,7 @@ CREATE TABLE `users` (
   `password` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `users`
---
 
-INSERT INTO `users` (`id`, `name`, `username`, `password`) VALUES
-(1, 'Marc', 'MarcMarc', '123456');
-
---
 -- Índices para tablas volcadas
 --
 
