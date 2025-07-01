@@ -35,7 +35,6 @@ public class BookController {
         return new String();
     }
     public String postMethodName(@RequestBody String entity) {
-        
         return entity;
     }   
 }
