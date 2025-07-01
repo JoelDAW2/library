@@ -56,7 +56,3 @@ INSERT INTO `reviews` (`user_id`, `book_id`, `score`, `comment`) VALUES
 (9, 10, 6, 'Bien escrito, pero un poco largo.'),
 (12, 8, 8, 'Entretenido y con buen ritmo.');
 
-Select * from users;
-Select * from reviews;
-Select * from books;
-
