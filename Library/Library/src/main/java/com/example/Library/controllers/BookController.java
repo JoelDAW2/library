@@ -3,6 +3,7 @@ package com.example.Library.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Library.models.Book;
 import com.example.Library.services.BookService;
+import com.example.Library.utils.CsvGeneratorUtil;
 
 /*Para hacer test, ejecutar './mvnw spring-boot:run' dentro de la carpeta Library y ir a esta 
 URL: http://localhost:8080/helloWorld helloWorld puede cambiar si se edita el /helloWorld de @getMapping */
@@ -22,6 +24,13 @@ URL: http://localhost:8080/helloWorld helloWorld puede cambiar si se edita el /h
 public class BookController {
     @Autowired
     private BookService bookService;
+    @Autowired
+    private CsvGeneratorUtil csvGeneratorUtil;
+
+    /* @GetMapping("/employees/csv")
+    public ResponseEntity<byte[]> generateCsvFile() {
+
+    } */
 
     @PostMapping
     public Book createBook(@RequestBody Book book){
