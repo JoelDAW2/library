@@ -8,5 +8,5 @@ import com.example.Library.models.User;
 
 @Repository
 public interface LoginRepository extends JpaRepository<User, Long>{
-    User findByUsernameAndPassword(String username, String password);
+    User findByUsername(String username);
 }
