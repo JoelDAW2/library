@@ -31,7 +31,7 @@ public class UserController {
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
-    @GetMapping("/userByUserName") // se accede con: http://localhost:8080/api/books/bookByName?title=titulo%del%libro
+    @GetMapping("/userByUserName") // se accede con: http://localhost:8080/api/users/userByUserName?userName=MarcMarc
     public User findUserByTitle(@RequestParam String userName){
         return userService.findUserByUserName(userName);
     }
