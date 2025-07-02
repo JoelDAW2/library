@@ -22,4 +22,17 @@ public class BookService {
     public Book updateBook(Book book) {
         return bookRepository.save(book);
     }
+
+    public Book findBookByTitle(String title) {
+        Book book = bookRepository.findByTitle(title);
+        
+        if(book != null)
+        {
+            return book;
+        }
+        else 
+        {
+            return null;
+        }
+    }
 }
