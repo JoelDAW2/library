@@ -27,12 +27,14 @@ public class BookController {
     public Book createBook(@RequestBody Book book){
         return bookService.createBook(book);
     }
-
     @GetMapping
     public List<Book> getAllBooks(){
         return bookService.getAllBooks();
     }
-
+    @GetMapping("/bookByName") // se accede con: http://localhost:8080/api/books/bookByName?title=titulo%del%libro
+    public Book findBookByTitle(@RequestParam String title){
+        return bookService.findBookByTitle(title);
+    }
     @PutMapping
     public void updateBook(@RequestBody Book book){
         bookService.updateBook(book);
