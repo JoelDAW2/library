@@ -1,23 +1,24 @@
 package com.example.Library.controllers;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.example.Library.models.User;
+import com.example.Library.services.LoginService;
+
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/login")
 public class LoginController {
+
+    @Autowired
+    private LoginService loginService;
     
-    @PostMapping("/login")
+    @PostMapping
     public ResponseEntity<String> login(@RequestBody User user) {
-        // For demonstration, we assume a fixed username and password.
-        String fixedUsername = "user";
-        String fixedPassword = "password";
-        if (fixedUsername.equals(user.getUsername()) &&
-            fixedPassword.equals(user.getPassword())) {
-            return ResponseEntity.ok("Login successful!");
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                                 .body("Invalid credentials.");
-        }
+        return loginService.login(user.getUsername(), user.getPassword());
     }
 }

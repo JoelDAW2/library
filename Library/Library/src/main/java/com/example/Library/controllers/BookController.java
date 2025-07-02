@@ -36,14 +36,5 @@ public class BookController {
     @PutMapping
     public void updateBook(@RequestBody Book book){
         bookService.updateBook(book);
-    }
-
-
-
-    /* public String getMethodName(@RequestParam String param) {
-        return new String();
-    }
-    public String postMethodName(@RequestBody String entity) {
-        return entity;
-    } */   
+    }   
 }
