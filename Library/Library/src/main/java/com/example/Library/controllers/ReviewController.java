@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Library.models.Review;
@@ -21,7 +20,7 @@ public class ReviewController{
     private ReviewService reviewService;
 
     @PostMapping
-    public Review createBook(@RequestBody Review review){
+    public Review createReview(@RequestBody Review review){
         return reviewService.createReview(review);
     }
 
@@ -29,10 +28,5 @@ public class ReviewController{
     public List<Review> getAllReviews(){
         return reviewService.getAllReview();
     }
-    public String getMethodName(@RequestParam String param) {
-        return new String();
-    }
-    public String postMethodName(@RequestBody String entity) {
-        return entity;
-    }   
+
 }
