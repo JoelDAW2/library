@@ -9,13 +9,30 @@ import com.example.Library.models.Book;
 @Service
 public class BookService {
     @Autowired
-    private BookRepository BookRepository;
+    private BookRepository bookRepository;
 
     public Book createBook(Book book){
-        return BookRepository.save(book);
+        return bookRepository.save(book);
     }
 
     public List<Book> getAllBooks(){
-        return BookRepository.findAll();
+        return bookRepository.findAll();
+    }
+
+    public Book updateBook(Book book) {
+        return bookRepository.save(book);
+    }
+
+    public Book findBookByTitle(String title) {
+        Book book = bookRepository.findByTitle(title);
+        
+        if(book != null)
+        {
+            return book;
+        }
+        else 
+        {
+            return null;
+        }
     }
 }
