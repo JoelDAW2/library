@@ -28,7 +28,7 @@ public class LoginService {
             boolean loggedIn = passwordEncoder.matches(password, user.getPassword());
             if(loggedIn)
             {
-                return ResponseEntity.ok(user.getName()+"a"); 
+                return ResponseEntity.ok(user.getName()); 
             }
             else {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials.");
