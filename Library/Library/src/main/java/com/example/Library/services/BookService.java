@@ -15,6 +15,10 @@ public class BookService {
         return bookRepository.save(book);
     }
 
+    public String getBooksTitle(Book book){
+        return book.getTitle();
+    }
+
     public List<Book> getAllBooks(){
         return bookRepository.findAll();
     }
