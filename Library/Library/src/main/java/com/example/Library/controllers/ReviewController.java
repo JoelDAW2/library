@@ -31,7 +31,7 @@ public class ReviewController{
     }
 
     @GetMapping("/orderbyScore")
-        public List<Review> orderbyScore() {
+        public List<String> orderbyScore() {
         return reviewService.orderbyScore();
     }
 
