@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.Library.models.Book;
 import com.example.Library.models.Review;
 import com.example.Library.services.ReviewService;
 
@@ -27,6 +28,11 @@ public class ReviewController{
     @GetMapping
     public List<Review> getAllReviews(){
         return reviewService.getAllReview();
+    }
+
+    @GetMapping("/orderbyScore")
+        public List<Review> orderbyScore() {
+        return reviewService.orderbyScore();
     }
 
 }
