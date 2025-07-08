@@ -27,16 +27,7 @@ public class BookService {
         return bookRepository.save(book);
     }
 
-    public Book findBookByTitle(String title) {
-        Book book = bookRepository.findByTitle(title);
-        
-        if(book != null)
-        {
-            return book;
-        }
-        else 
-        {
-            return null;
-        }
+    public List<String> findByTitle(String title) {
+        return bookRepository.findByTitle(title);
     }
 }

@@ -44,9 +44,9 @@ public class BookController {
     public List<Book> getAllBooks(){
         return bookService.getAllBooks();
     }
-    @GetMapping("/bookByName") // se accede con: http://localhost:8080/api/books/bookByName?title=titulo%del%libro
-    public Book findBookByTitle(@RequestParam String title){
-        return bookService.findBookByTitle(title);
+    @GetMapping("/findByTitle") // se accede con: http://localhost:8080/api/books/bookByName?title=titulo%del%libro
+    public List<String> findByTitle(@RequestParam String title){
+        return bookService.findByTitle(title);
     }
     @PutMapping
     public void updateBook(@RequestBody Book book){
