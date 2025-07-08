@@ -91,7 +91,6 @@ public class BookController {
 
         if(rows.size() > 0)
         {
-            String regex = ",";
             for (int i = 0; i < rows.size(); i++) {
                 String[] bookParams = rows.get(i);
 

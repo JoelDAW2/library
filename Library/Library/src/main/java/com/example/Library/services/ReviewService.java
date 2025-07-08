@@ -5,7 +5,6 @@ import com.example.Library.repositories.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.Library.models.Book;
 import com.example.Library.models.Review;
 
 @Service
