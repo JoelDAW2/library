@@ -21,7 +21,7 @@ public class ReviewService {
         return ReviewRepository.findAll();
     }
 
-    public List<Review> orderbyScore(){
+    public List<String> orderbyScore(){
         return ReviewRepository.orderbyScore();
     }
 }
