@@ -13,7 +13,7 @@ import com.example.Library.models.Review;
 import com.example.Library.services.ReviewService;
 
 @RestController
-@RequestMapping("/api/review")
+@RequestMapping("/review")
 public class ReviewController{
 
     @Autowired
@@ -25,8 +25,8 @@ public class ReviewController{
     }
 
     @GetMapping
-    public List<Review> getAllReviews(){
-        return reviewService.getAllReview();
+    public List<String> showReview(){
+        return reviewService.showReview();
     }
 
     @GetMapping("/orderbyScore")

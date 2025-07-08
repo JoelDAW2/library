@@ -16,10 +16,10 @@ public class ReviewService {
         return ReviewRepository.save(review);
     }
 
-    public List<Review> getAllReview(){
-        return ReviewRepository.findAll();
+    public List<String> showReview() {
+        List<String> showReviews = ReviewRepository.showReview();
+        return showReviews;
     }
-
     public List<String> orderbyScore(){
         return ReviewRepository.orderbyScore();
     }

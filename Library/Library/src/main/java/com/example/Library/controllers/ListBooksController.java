@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Library.services.ListBooksService;
 
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("/user")
 public class ListBooksController {
 
     @Autowired
@@ -26,7 +26,7 @@ public class ListBooksController {
         return listBooksService.findBooksNoReadByUser(userId);
     }
 */
-    @GetMapping("/user/{userId}")
+    @GetMapping("/{userId}")
     public List<Object>  mergeBooks(@PathVariable Long userId){
         return listBooksService.mergeBooks(userId);
     }

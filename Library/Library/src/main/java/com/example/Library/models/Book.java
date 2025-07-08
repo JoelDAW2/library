@@ -18,6 +18,8 @@ public class Book {
     public String synopsis;
     public int year;
 
+    public Book() {
+    }
     public Book(String author, String genre, String synopsis, String title, int year) {
         this.author = author;
         this.genre = genre;

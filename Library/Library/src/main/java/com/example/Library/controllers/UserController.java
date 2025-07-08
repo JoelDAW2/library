@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -29,7 +29,7 @@ public class UserController {
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
-    @GetMapping("/userByUserName") // se accede con: http://localhost:8080/api/users/userByUserName?userName=MarcMarc
+    @GetMapping("/userByUserName") // se accede con: http://localhost:8080/users/userByUserName?userName=MarcMarc
     public User findUserByTitle(@RequestParam String userName){
         return userService.findUserByUserName(userName);
     }

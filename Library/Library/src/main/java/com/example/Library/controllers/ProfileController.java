@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Library.services.ProfileService;
 
 @RestController
-@RequestMapping("/api/profile")
+@RequestMapping("/profile")
 public class ProfileController {
 
     @Autowired
     private ProfileService listProfileService;
     
-    @GetMapping("/all/{userId}")
+    @GetMapping("/{userId}/allreviews")
     public List<String> showUsers(@PathVariable Long userId) {
         return listProfileService.showUsers(userId);
     }

@@ -30,7 +30,7 @@ import com.opencsv.exceptions.CsvException;
 URL: http://localhost:8080/helloWorld helloWorld puede cambiar si se edita el /helloWorld de @getMapping */
 
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("/books")
 public class BookController {
     @Autowired
     private BookService bookService;
