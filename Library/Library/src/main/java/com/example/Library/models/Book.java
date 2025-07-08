@@ -17,6 +17,14 @@ public class Book {
     public String genre;
     public String synopsis;
     public int year;
+
+    public Book(String author, String genre, String synopsis, String title, int year) {
+        this.author = author;
+        this.genre = genre;
+        this.synopsis = synopsis;
+        this.title = title;
+        this.year = year;
+    }
     
     public Long getId() {
         return id;
