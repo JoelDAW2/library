@@ -4,6 +4,7 @@ import java.util.List;
 import com.example.Library.repositories.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.Library.models.Review;
 
@@ -22,6 +23,14 @@ public class ReviewService {
     }
     public List<String> orderbyScore(){
         return ReviewRepository.orderbyScore();
+    }
+
+    public List<String> IdUserReviews(@PathVariable Long userId){
+        return ReviewRepository.IdUserReviews(userId);
+    }
+
+     public List<String> UserNameReviews(@PathVariable String username){
+        return ReviewRepository.UserNameReviews(username);
     }
 }
 

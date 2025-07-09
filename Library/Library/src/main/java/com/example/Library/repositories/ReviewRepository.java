@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.example.Library.models.Review;
@@ -15,4 +16,11 @@ import com.example.Library.models.Review;
         //@Query("SELECT b.title, AVG(r.score) FROM Review r inner join Book b ON b.id = r.bookId group by r.bookID order by AVG(r.score) desc")
         @Query("SELECT b.title, AVG(r.score) FROM Review r inner join Book b ON b.id = r.bookId group by b.title order by AVG(r.score) desc")
         public List<String> orderbyScore();
+
+        @Query("SELECT b.title,r.score, r.comment FROM User u JOIN Review r ON u.id = r.userId join Book b on b.id = r.bookId WHERE r.userId = :userId")
+        public List<String> IdUserReviews(@Param("userId") Long userId);
+
+        @Query("SELECT b.title,r.score, r.comment FROM User u JOIN Review r ON u.id = r.userId join Book b on b.id = r.bookId WHERE u.username = :username")
+        public List<String> UserNameReviews(@Param("username") String username);
+
     }

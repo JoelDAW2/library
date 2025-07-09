@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,9 +30,18 @@ public class ReviewController{
         return reviewService.showReview();
     }
 
-    @GetMapping("/orderbyScore")
-        public List<String> orderbyScore() {
+    @GetMapping("/orderbyAVGScore")
+        public List<String> orderbyScore(){
         return reviewService.orderbyScore();
     }
 
+    @GetMapping("/IdUserReviews_{userId}")
+        public List<String> IdUserReviews(@PathVariable Long userId){
+        return reviewService.IdUserReviews(userId);
+    }
+
+     @GetMapping("/UserNameReviews_{username}")
+     public List<String> UserNameReviews(@PathVariable String username){
+        return reviewService.UserNameReviews(username);
+    }
 }

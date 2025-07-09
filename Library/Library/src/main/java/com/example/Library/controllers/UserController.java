@@ -29,9 +29,13 @@ public class UserController {
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
-    @GetMapping("/userByUserName") // se accede con: http://localhost:8080/users/userByUserName?userName=MarcMarc
+    @GetMapping("/userByUserName")
     public User findUserByTitle(@RequestParam String userName){
         return userService.findUserByUserName(userName);
     }
-    
+
+    @GetMapping("/findIdAndUsername{userName}") 
+    public List<String> findUsername(@RequestParam String userName){
+        return userService.findUsername(userName);
+    }
 }
