@@ -32,45 +32,9 @@ public class ReviewController{
     public List<String> showReview(){
         List<String> a = reviewService.showReview();
 
-        List<String> ret = new ArrayList<>();
+        List<String> pauta = Arrays.asList("Username", "Title", "Score","Review");
 
-        for (int i = 0; i < a.size(); i++) {
-            int comasCount = 0;
-            String Bonus ="";
-            Bonus += "Username: ";
-
-            String b= a.get(i);
-
-            for (int j = 0; j < b.length(); j++) {
-                if (b.charAt(j) == ',' && comasCount <= 3) {
-                    switch (comasCount) {
-                        case 0:
-                        ret.add(Bonus);
-                            Bonus = "Title: ";
-                        break;
-                        case 1:
-                        ret.add(Bonus);
-                            Bonus = "Score: ";
-                        break;
-                        case 2: 
-                        ret.add(Bonus);
-                            Bonus = "Review: ";
-                        break;
-                    }
-                    comasCount++;
-                }
-                else{
-                    Bonus += b.charAt(j);
-                }
-            }
-            ret.add(Bonus);
-            if (i < a.size()-1) {
-                Bonus = "-----------------------";
-                ret.add(Bonus);
-            }
-        }
-
-        return ret;
+        return Ordenar(a, pauta);
     }
 
     @GetMapping("/orderbyAVGScore")
@@ -78,37 +42,9 @@ public class ReviewController{
 
         List<String> a = reviewService.orderbyScore();
 
-        List<String> ret = new ArrayList<>();
+        List<String> pauta = Arrays.asList("Title", "Score");
 
-        for (int i = 0; i < a.size(); i++) {
-            int comasCount = 0;
-            String Bonus ="";
-            Bonus += "Title: ";
-
-            String b= a.get(i);
-
-            for (int j = 0; j < b.length(); j++) {
-                if (b.charAt(j) == ',' && comasCount <= 1) {
-                    switch (comasCount) {
-                        case 0:
-                        ret.add(Bonus);
-                            Bonus = "Score: ";
-                        break;
-                    }
-                    comasCount++;
-                }
-                else{
-                    Bonus += b.charAt(j);
-                }
-            }
-            ret.add(Bonus);
-            if (i < a.size()-1) {
-                Bonus = "-----------------------";
-                ret.add(Bonus);
-            }
-        }
-
-        return ret;
+        return Ordenar(a, pauta);
         
     }
 
@@ -116,41 +52,9 @@ public class ReviewController{
         public List<String> IdUserReviews(@PathVariable Long userId){
         List<String> a = reviewService.IdUserReviews(userId);
 
-                List<String> ret = new ArrayList<>();
+        List<String> pauta = Arrays.asList("Title", "Score","Review");
 
-        for (int i = 0; i < a.size(); i++) {
-            int comasCount = 0;
-            String Bonus ="";
-            Bonus += "Title: ";
-
-            String b= a.get(i);
-
-            for (int j = 0; j < b.length(); j++) {
-                if (b.charAt(j) == ',' && comasCount <= 2) {
-                    switch (comasCount) {
-                        case 0:
-                        ret.add(Bonus);
-                            Bonus = "Score: ";
-                        break;
-                        case 1: 
-                        ret.add(Bonus);
-                            Bonus = "Review: ";
-                        break;
-                    }
-                    comasCount++;
-                }
-                else{
-                    Bonus += b.charAt(j);
-                }
-            }
-            ret.add(Bonus);
-            if (i < a.size()-1) {
-                Bonus = "-----------------------";
-                ret.add(Bonus);
-            }
-        }
-
-        return ret;
+        return Ordenar(a, pauta);
         
     }
 
@@ -158,46 +62,9 @@ public class ReviewController{
     public List<String> UserNameReviews(@PathVariable String username){
         List<String> a = reviewService.UserNameReviews(username);
 
-        List<String> ret = new ArrayList<>();
+        List<String> pauta = Arrays.asList("Username", "Title", "Score","Review");
 
-        for (int i = 0; i < a.size(); i++) {
-            int comasCount = 0;
-            String Bonus ="";
-            Bonus += "Username: ";
-
-            String b= a.get(i);
-
-            for (int j = 0; j < b.length(); j++) {
-                if (b.charAt(j) == ',' && comasCount <= 3) {
-                    switch (comasCount) {
-                        case 0:
-                        ret.add(Bonus);
-                            Bonus = "Title: ";
-                        break;
-                        case 1:
-                        ret.add(Bonus);
-                            Bonus = "Score: ";
-                        break;
-                        case 2: 
-                        ret.add(Bonus);
-                            Bonus = "Review: ";
-                        break;
-                    }
-                    comasCount++;
-                }
-                else{
-                    Bonus += b.charAt(j);
-                }
-            }
-            ret.add(Bonus);
-            if (i < a.size()-1) {
-                Bonus = "-----------------------";
-                ret.add(Bonus);
-            }
-        }
-
-        return ret;
-
+        return Ordenar(a, pauta);
 
     }
 
