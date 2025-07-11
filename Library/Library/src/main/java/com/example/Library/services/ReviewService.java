@@ -29,8 +29,12 @@ public class ReviewService {
         return ReviewRepository.IdUserReviews(userId);
     }
 
-     public List<String> UserNameReviews(@PathVariable String username){
+    public List<String> UserNameReviews(@PathVariable String username){
         return ReviewRepository.UserNameReviews(username);
+    }
+
+    public List<String> BookReviews(@PathVariable String bookName){
+        return ReviewRepository.BookReviews(bookName);
     }
 }
 

@@ -40,8 +40,13 @@ public class ReviewController{
         return reviewService.IdUserReviews(userId);
     }
 
-     @GetMapping("/UserNameReviews_{username}")
-     public List<String> UserNameReviews(@PathVariable String username){
+    @GetMapping("/UserNameReviews_{username}")
+    public List<String> UserNameReviews(@PathVariable String username){
         return reviewService.UserNameReviews(username);
+    }
+
+    @GetMapping("/BookReviews_{bookName}")
+    public List<String> BookReviews(@PathVariable String bookName){
+        return reviewService.BookReviews(bookName);
     }
 }
